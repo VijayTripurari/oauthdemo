@@ -1,16 +1,12 @@
 package com.response;
 
 public class Response {
-
 	private String message;
-
 	private String status;
-
 	private String error_type;
 
 	public Response() {
 		super();
-
 	}
 
 	public Response(String message, String status, String error_type) {
@@ -43,5 +39,4 @@ public class Response {
 	public void setError_type(String error_type) {
 		this.error_type = error_type;
 	}
-
 }

@@ -1,34 +1,23 @@
 package com.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@Entity
 public class Customer {
 
-	@Id
-	@GeneratedValue
-	private int id;
-	
-	@Size(max=10, message="Customer Number can not be more than 10")
+	@Size(max = 10, message = "Customer Number can not be more than 10")
 	@NotBlank
 	private String customerNumber;
 
-	@Size(max=50, message="First Name can not be more than 50 characters")
-	@Size(min=10, message="First Name can not be less than 10 characters")
+	@Size(max = 50, message = "First Name can not be more than 50 characters")
+	@Size(min = 10, message = "First Name can not be less than 10 characters")
 	@NotBlank
 	private String firstName;
 
-	@Size(max=50, message="Last Name can not be more than 50 characters")
-	@Size(min=10, message="Last Name can not be less than 10 characters")
+	@Size(max = 50, message = "Last Name can not be more than 50 characters")
+	@Size(min = 10, message = "Last Name can not be less than 10 characters")
 	@NotBlank
 	private String lastName;
 
@@ -36,28 +25,27 @@ public class Customer {
 
 	@NotBlank
 	private String country;
-	
-	@Size(max=2, message="Country code can not be more than 2")
+
+	@Size(max = 2, message = "Country code can not be more than 2")
 	@NotBlank
 	private String countryCode;
 
-	@Size(min=10, message="Mobile Number can not be more than 10 characters")
+	@Size(min = 10, message = "Mobile Number can not be more than 10 characters")
 	@NotBlank
 	private String mobileNumber;
 
-	@Size(max=50, message="email can not be more than 50 characters")
+	@Size(max = 50, message = "email can not be more than 50 characters")
 	@Email
 	private String email;
 
 	private String customerStatus;
 
 	@NotNull
-	@OneToOne(cascade=CascadeType.PERSIST)
 	private Address address;
 
 	public Customer() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Customer(String customerNumber, String firstName, String lastName, String birthDate, String country,

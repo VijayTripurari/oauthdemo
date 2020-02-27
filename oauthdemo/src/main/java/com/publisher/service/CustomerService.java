@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
-
 import com.constants.CustomerConstants;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.model.Customer;
@@ -17,11 +16,11 @@ import com.response.Response;
 public class CustomerService {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(CustomerService.class);
-	
 	@Autowired
 	KafkaTemplate<String, Customer> kafkaTemplate;
 
 	public ResponseEntity<Response> publishToTopic(Customer customer) {
+		LOGGER.info("Customer Service started......");
 		Response response = new Response();
 		long startTime = System.currentTimeMillis();
 		ObjectMapper mapper = new ObjectMapper();
@@ -41,6 +40,7 @@ public class CustomerService {
 		}
 		long elapsedTime = System.currentTimeMillis() - startTime;
 		LOGGER.info("Publisher Response Time : " + elapsedTime);
+		LOGGER.info("Customer Service end......");
 		return new ResponseEntity<>(response, HttpStatus.OK);
 
 	}

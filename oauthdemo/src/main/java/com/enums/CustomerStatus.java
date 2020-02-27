@@ -5,7 +5,7 @@ public enum CustomerStatus {
 
 	private String status;
 
-	private String getStatus() {
+	public String getStatus() {
 		return status;
 
 	}

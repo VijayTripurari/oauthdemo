@@ -1,17 +1,9 @@
 package com.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
-@Entity
 public class Address {
 
-	@Id
-	@GeneratedValue
-	private int id;
-		
 	@NotBlank
 	private String addressLine1;
 
